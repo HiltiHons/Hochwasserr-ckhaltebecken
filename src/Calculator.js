@@ -1,27 +1,24 @@
-// src/Calculator.js
-
-import { ref } from 'vue'
-
 class Calculator {
     constructor() {
-        this.area = ref(0);
-        this.selectArea = ref(0);
-        this.precipitation = ref(0);
-        this.result = ref(0);
-        this.amountOfRainGross = ref(0);
-        this.leaching = ref(0);
-        this.amountOfRainNet = ref(0);
-        this.basinArea = ref(0);
-        this.damWallHeight = ref(0);
-        this.drain = ref(0);
-        this.waterAmount = ref(0);
-    }
-    calcTotalAmountOfWater()
-    {
-       return  this.result.value = this.area.value;
+        this.area = 0;
+        this.selectArea = '';
+        this.precipitation = 0;
+        this.result = 0;
+        this.amountOfRainGross = 0;
+        this.leaching = 0;
+        this.amountOfRainNet = 0;
+        this.basinArea = 0;
+        this.damWallHeight = 0;
+        this.drain = 0;
+        this.waterAmount = 0;
     }
 
-    setNumbers(area, selectArea, precipitation, leaching, basinArea,drain) {
+    calcTotalAmountOfWater() {
+        // Beispielberechnung, diese sollte an deine Logik angepasst werden
+        this.result = this.area * this.precipitation - this.leaching;
+    }
+
+    setNumbers(area, selectArea, precipitation, leaching, basinArea, drain) {
         this.area = area;
         this.selectArea = selectArea;
         this.precipitation = precipitation;
@@ -31,12 +28,12 @@ class Calculator {
     }
 
     getResult() {
-        return this.result.value
+        return this.result;
     }
 
     add() {
-        this.result.value = this.area.value + this.precipitation.value
+        this.result = this.area + this.precipitation;
     }
 }
 
-export default Calculator
+export default Calculator;

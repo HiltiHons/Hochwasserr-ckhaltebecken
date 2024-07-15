@@ -31,7 +31,6 @@
       </div>
     </div>
   </WelcomeItem>
-
 </template>
 
 <script setup>
@@ -39,55 +38,38 @@ import {ref} from 'vue'
 import Calculator from '@/Calculator.js'
 import WelcomeItem from "@/components/WelcomeItem.vue";
 import IconDocumentation from "@/components/icons/IconDocumentation.vue";
-//Fläche des Tals
-const area = ref(null)
-//Ausgewählte Einheit m²/ha/Km²
-const selectArea = ref(null)
-//Niederschlag in mm
-const precipitation = ref(null)
-//Resultat der Berechnung
+
+// Fläche des Tals
+const area = ref(0)
+// Ausgewählte Einheit m²/ha/Km²
+const selectArea = ref('')
+// Niederschlag in mm
+const precipitation = ref(0)
+// Resultat der Berechnung
 const result = ref(null)
-//Regenmenge Brutto
-const amountOfRainGross = ref(null)
-//Versickerung in Prozent
-const leaching = ref(null);
-//Regenmenge Netto
-const amountOfRainNet = ref(null);
-//Die Größe des Beckens
-const basinArea = ref(null);
-//Höhe des Damms
-const damWallHeight = ref(null);
-//Die Menge die pro Zeiteinheit abfließt
-const drain = ref(null);
+// Regenmenge Brutto
+const amountOfRainGross = ref(0)
+// Versickerung in Prozent
+const leaching = ref(0)
+// Regenmenge Netto
+const amountOfRainNet = ref(0)
+// Die Größe des Beckens
+const basinArea = ref(0)
+// Höhe des Damms
+const damWallHeight = ref(0)
+// Die Menge die pro Zeiteinheit abfließt
+const drain = ref(0)
 
 const calculator = new Calculator()
 
-
-function calculate()
-{
+function calculate() {
   calculator.setNumbers(area.value, precipitation.value, leaching.value, basinArea.value, drain.value, selectArea.value)
 
   calculator.calcTotalAmountOfWater()
+  console.log(result.value)
   result.value = calculator.getResult()
- /* try
-  {
-    console.log(selectArea.value)
-    switch (operation)
-    {
-      case 'add':
-        calculator.add()
-        break
-      case 'subtract':
-    }
-    result.value = calculator.getResult()
-  } catch (error)
-  {
-    alert(error.message)
-    result.value = null
-  }*/
 }
 </script>
-
 
 <style scoped>
 div {
