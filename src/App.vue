@@ -1,8 +1,9 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
-import Calculator from "@/components/Calculator.vue";
 import Lottie from "@/components/Lottie.vue";
+import CalculatorComponent from './components/CalculatorComponent.vue'
+
 </script>
 
 <template>
@@ -17,9 +18,7 @@ import Lottie from "@/components/Lottie.vue";
 
   <main>
     <TheWelcome />
-<!--
-    <Calculator/>
--->
+    <CalculatorComponent />
   </main>
 </template>
 
