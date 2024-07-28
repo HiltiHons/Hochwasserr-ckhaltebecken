@@ -1,4 +1,15 @@
 class Calculator {
+    area;
+    selectArea;
+    precipitation;
+    result;
+    amountOfRainGross;
+    leaching;
+    amountOfRainNet;
+    basinArea;
+    damWallHeight;
+    drain;
+    waterAmount;
     constructor() {
         this.area = 0;
         this.selectArea = '';
@@ -14,8 +25,7 @@ class Calculator {
     }
 
     calcTotalAmountOfWater() {
-        // Beispielberechnung, diese sollte an deine Logik angepasst werden
-        this.result = this.area * this.precipitation - this.leaching;
+        return this.area.value * this.precipitation.value;
     }
 
     setNumbers(area, selectArea, precipitation, leaching, basinArea, drain) {

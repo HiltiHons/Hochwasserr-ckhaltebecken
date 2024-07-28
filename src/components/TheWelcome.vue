@@ -52,17 +52,9 @@ import SupportIcon from './icons/IconSupport.vue'
     die nur einen Bruchteil der Speichergröße besitzt und dabei nicht an
     Qualität verliert.
   </WelcomeItem>
-
   <WelcomeItem>
     <template #icon>
       <CommunityIcon/>
     </template>
-    <template #heading>Gemeinschaft
-    </template>
-
-    Vue3 hat eine großartige Community! Nimm dir die Zeit und sehe dich auf den offiziellen
-    <a href="https://chat.vuejs.org" target="_blank" rel="noopener noreferrer">Vue Land</a> Discord Server um.
-    Sollten dich die aktuellen Neuigkeiten rund um Vue interessieren, dann schau doch gleich mal bei
-    <a href="https://x.com/vuejs" rel="noopener noreferrer" target="_blank">@vuejs</a> vorbei.
   </WelcomeItem>
 </template>
