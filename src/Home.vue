@@ -6,7 +6,7 @@ import EcosystemIcon from './icons/IconEcosystem.vue'
 import CommunityIcon from './icons/IconCommunity.vue'
 </script>
 
-<template><br><br>
+<template>
   <WelcomeItem>
     <template #icon>
       <DocumentationIcon />
@@ -27,8 +27,8 @@ import CommunityIcon from './icons/IconCommunity.vue'
 
     Das Projekt wird betrieben mit
     <a href="https://vitejs.dev/guide/features.html" target="_blank" rel="noopener noreferrer">Vite</a>. Als IDE kommt
-    <a href="https://www.jetbrains.com/de-de/phpstorm/" target="_blank" rel="noopener noreferrer">PHPStorm</a> zum
-    Einsatz. Falls du mal Lust auf mehr bekommst und
+    <a href="https://www.jetbrains.com/de-de/phpstorm/" target="_blank" rel="noopener noreferrer">PHPSorm</a> zum
+    Einsatz. Falls du mal lust auf mehr bekommst und
     <a href="https://vuejs.org/" target="_blank" rel="noopener noreferrer">Vue</a> eine Chance geben möchtest, oder
     einfach mal aus Langeweile herumspielen willst, auf dieser Seite gibt es ein wunderbares
     <a href="https://vuejs.de/artikel/vuejs-tutorial-deutsch-anfaenger/" target="_blank" rel="noopener noreferrer">Tutorial.</a>
@@ -42,7 +42,13 @@ import CommunityIcon from './icons/IconCommunity.vue'
 
     Dir ist bestimmt schon die Animation auf der Seite aufgefallen. Dabei handelt es sich um eines der mächtigsten Tools
     um heutzutage Animation zu erzeugen. Mit
-    <a href="https://lottiefiles.com/de/" target="_blank" rel="noopener noreferrer">Lottie</a> entwirfst du Animationen,
+    <a href="https://lottiefiles.com/de/" target="_blank" rel="noopener noreferrer">Lottie</a> entwirfst du Animationen
     die nur einen Bruchteil der Speichergröße besitzt und dabei nicht an Qualität verliert.
+  </WelcomeItem>
+
+  <WelcomeItem>
+    <template #icon>
+      <CommunityIcon />
+    </template>
   </WelcomeItem>
 </template>

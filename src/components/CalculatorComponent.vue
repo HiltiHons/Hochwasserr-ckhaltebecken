@@ -1,5 +1,3 @@
-<!-- src/components/CalculatorComponent.vue -->
-
 <template>
   <WelcomeItem>
     <template #icon>
@@ -22,8 +20,7 @@
         <input v-model.number="leaching" id="leaching" placeholder="Versickerung" type="number"/><br>
         <label for="basinArea">Grundfläche Rückhaltebecken (m²)</label><br>
         <input v-model.number="basinArea" id="basinArea" placeholder="Grundfläche Becken" type="number"/><br>
-        <label for="damWallHeight">Höhe Damm (m)</label><br>
-        <input v-model.number="damWallHeight" id="damWallHeight" placeholder="Höhe Damm" type="number"/><br>
+        <input  v-model.number="damWallHeight" id="damWallHeight" placeholder="Höhe Damm" type="hidden"/>
         <label for="drain">Abfluss (l/s)</label><br>
         <input v-model.number="drain" id="drain" placeholder="Abfluss" type="number"/><br>
       </div>
@@ -62,7 +59,6 @@ let damWallHeight = ref(0)
 // Die Menge die pro Zeiteinheit abfließt
 let drain = ref(0)
 
-// Resultate
 let result = ref(null)
 let totalWaterVolume = ref(0)
 let netWaterVolume = ref(0)
@@ -85,18 +81,20 @@ function convertAreaToM2()
 
 function calculate()
 {
+  if (area.value <= 0 || precipitation.value <= 0 || basinArea.value <= 0 || drain.value <= 0) {
+    result.value = false;
+    alert("Alle Eingabewerte müssen größer als 0 sein.");
+    return;
+  }
+
   const areaM2 = convertAreaToM2()
 
-  // Gesamt-Wassermenge im Tal
-  totalWaterVolume.value = (areaM2 * precipitation.value) / 1000  // von mm zu m³
+  totalWaterVolume.value = (areaM2 * precipitation.value) / 1000
 
-  // Gesamt-Wassermenge im Rückhaltebecken nach Versickerung
   netWaterVolume.value = totalWaterVolume.value * (1 - leaching.value / 100)
 
-  // Höhe des Damms
   damWallHeightCalculated.value = netWaterVolume.value / basinArea.value
 
-  // Entleer-Dauer bei gegebenem Abfluss
   emptyingDuration.value = (netWaterVolume.value * 1000) / (drain.value * 3600) // Ergebnis in Stunden
 
   result.value = true

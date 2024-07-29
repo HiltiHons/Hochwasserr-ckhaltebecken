@@ -1,24 +1,23 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
 import Lottie from "@/components/Lottie.vue";
-import CalculatorComponent from './components/CalculatorComponent.vue'
-
 </script>
 
 <template>
+
   <header>
+    <div style="display: flex; position: absolute; top: 12px;">
+      <a style="padding: 15px" href="/">Home</a>
+      <a style="padding: 15px" href="/dokumentation">Dokumentation</a>
+      <a style="padding: 15px" href="/aufgabenstellung">Aufgabenstellung</a>
+    </div>
+    <br>
     <div>
       <Lottie/>
-    </div>
-    <div class="wrapper">
-      <HelloWorld msg="Rechner" />
     </div>
   </header>
 
   <main>
-    <TheWelcome />
-    <CalculatorComponent />
+    <router-view/>
   </main>
 </template>
 
