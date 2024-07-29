@@ -1,29 +1,23 @@
-# walter_hochwasser_rechner
+# Hochwasser-Rückhaltebecken
 
-This template should help get you started developing with Vue 3 in Vite.
+## Definition
+- Dieser Rechner ist ein Programm, das die Berechnung eines Hochwasser-Rückhaltebeckens ermöglicht.
 
-## Recommended IDE Setup
+## Vorteile
+- Einfache Berechnung komplexer hydrologischer Daten.
+- Nützlich für die Planung und den Bau von Hochwasser-Rückhaltebecken.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Grundlegende Nutzung
+- Der Rechner wird verwendet, um verschiedene Eingaben wie die Fläche des Tals, den Niederschlag und die Versickerungsrate zu verarbeiten und daraus wichtige Parameter für ein Rückhaltebecken zu berechnen.
 
-## Customize configuration
+## Erstellung
+- Der Rechner wurde mit JavaScript entwickelt und kann in einer beliebigen Programmierumgebung verwendet werden. Die Eingaben und Berechnungen werden durch die Methoden der `Calculator`-Klasse verarbeitet.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Beispiel
+- Angenommen, wir haben ein Tal mit einer Fläche von 1 km² und einem Niederschlag von 10 mm. Wenn 10 % des Niederschlags versickern und die Grundfläche des Beckens 1 ha beträgt, können wir folgende Berechnungen durchführen:
 
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+```javascript
+const calculator = new Calculator();
+calculator.setNumbers(1000000, 'm²', 10, 10, 10000, 100);
+const totalWater = calculator.calcTotalAmountOfWater();
+console.log(`Gesamtwassermenge im Tal: ${totalWater} m³`);
